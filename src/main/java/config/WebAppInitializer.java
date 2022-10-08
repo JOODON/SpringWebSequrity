@@ -1,6 +1,5 @@
 package config;
 
-import org.springframework.security.access.SecurityConfig;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -10,8 +9,10 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     //스프링 컨피그 파일 설정
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[]{ApplicationConfig.class, SecurityConfig.class};
+        return new Class<?>[]{ApplicationConfig.class,SecurityConfig.class};
     }
+    //이 부분에서 연결부분을 제데로 설정하줘서 오류가 났던거였음!!
+
 
     // Spring WEB Config 파일을 설정한다. WebConfig는 Bean을 RootConfig에서 설정한 곳에서부터 찾는다.
     @Override
