@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import service.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -17,6 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //데이터베이스에서 가져올떄 이녀석을 사용해야되서 인터페이스를 구현해야됨!
     @Autowired
     CustomUserDetailsService customUserDetailsService;
+
 
 
     //   /webjars/** 경로에 대한 요청은 인증/인가 처리하지 않도록 무시합니다.
@@ -27,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     //   /, /main에 대한 요청은 누구나 할 수 있지만,
-//   그 외의 요청은 모두 인증 후 접근 가능합니다.
+    //   그 외의 요청은 모두 인증 후 접근 가능합니다.
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(customUserDetailsService);
