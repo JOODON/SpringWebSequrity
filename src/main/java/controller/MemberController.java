@@ -19,8 +19,8 @@ public class MemberController {
         return "members/loginform";
     }
 
-    @PostMapping("/loginerror")
+    @RequestMapping("/loginerror")
     public String loginerror(@RequestParam("login_error")String loginError){
-        return "members/loginerror";
+        return "members/loginerrer";
     }
 }
