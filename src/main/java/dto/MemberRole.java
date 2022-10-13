@@ -1,4 +1,4 @@
-package dao;
+package dto;
 
 public class MemberRole {
     private Long id;
