@@ -20,12 +20,14 @@ public class MemberServiceImpl implements MemberService{
         this.memberDao = memberDao;
         this.memberRoleDao = memberRoleDao;
     }
+
     @Override
     @Transactional
     public UserEntity getUser(String loginUserId) {
         Member member = memberDao.GetMemberByEmail(loginUserId);
-        return new UserEntity(member.getEMAIL(), member.getMEMBER_PASSWORD());
+        return new UserEntity(member.getEMAIL(),member.getMEMBER_PASSWORD());
     }
+
     @Override
     @Transactional
     public List<UserRoleEntity> getUserRoles(String loginUserId) {
@@ -33,7 +35,7 @@ public class MemberServiceImpl implements MemberService{
         List<UserRoleEntity> list = new ArrayList<>();
 
         for(MemberRole memberRole : memberRoles) {
-            list.add(new UserRoleEntity(loginUserId, memberRole.getRole_name()));
+            list.add(new UserRoleEntity(loginUserId,memberRole.getRole_name()));
         }
         return list;
     }
