@@ -5,10 +5,13 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
+
+
 @Repository
 public class MemberDao {
     private NamedParameterJdbcTemplate jdbc;
@@ -18,12 +21,11 @@ public class MemberDao {
     public MemberDao(DataSource dataSource){
         this.jdbc=new NamedParameterJdbcTemplate(dataSource);
     }
-    public Member GetMemberByEmail(String email){
+    public Member getMemberByEmail(String email){
         Map<String,Object> map=new HashMap<>();
         map.put("email",email);
 
-        return jdbc.queryForObject(MemberDaoSqls.SELECT_ALL,map,rowMapper);
-
+        return jdbc.queryForObject(MemberDaoSqls.SELECT_ALL_BY_EMAIL,map,rowMapper);
     }
 
 }

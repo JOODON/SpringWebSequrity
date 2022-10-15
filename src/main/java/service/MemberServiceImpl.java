@@ -24,7 +24,7 @@ public class MemberServiceImpl implements MemberService{
     @Override
     @Transactional
     public UserEntity getUser(String loginUserId) {
-        Member member = memberDao.GetMemberByEmail(loginUserId);
+        Member member = memberDao.getMemberByEmail(loginUserId);
         return new UserEntity(member.getEMAIL(),member.getMEMBER_PASSWORD());
     }
 

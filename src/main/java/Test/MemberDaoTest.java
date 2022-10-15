@@ -4,7 +4,6 @@ import config.ApplicationConfig;
 import dao.MemberDao;
 import dao.MemberRoleDao;
 import dto.Member;
-import dto.MemberRole;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +22,7 @@ public class MemberDaoTest {
     DataSource dataSource;
     @Autowired
     MemberDao memberDao;
+
     @Autowired
     MemberRoleDao memberRoleDao;
 
@@ -35,12 +35,14 @@ public class MemberDaoTest {
     public void connnectionTest() throws Exception{
         Connection connection = dataSource.getConnection();
         Assert.assertNotNull(connection);
+        System.out.println(connection);
+        //여기까지는 연결 잘됨
     }
 
     @Test
     public void getUser() throws Exception{
-        Member member=memberDao.GetMemberByEmail("launcher37@naver.com");
+        Member member = (Member) memberDao.getMemberByEmail("launcher37@naver.com");
         Assert.assertNotNull(member);
-        Assert.assertEquals("주동호",member.getName());
+        Assert.assertEquals("주동호", member.getName());
     }
 }
