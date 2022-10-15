@@ -22,7 +22,8 @@ public class MemberDao {
         this.jdbc=new NamedParameterJdbcTemplate(dataSource);
     }
     public Member getMemberByEmail(String email){
-        Map<String,Object> map=new HashMap<>();
+        Map<String,Object> map =new HashMap<>();
+
         map.put("email",email);
 
         return jdbc.queryForObject(MemberDaoSqls.SELECT_ALL_BY_EMAIL,map,rowMapper);

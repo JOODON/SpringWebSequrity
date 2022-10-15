@@ -41,7 +41,7 @@ public class MemberDaoTest {
 
     @Test
     public void getUser() throws Exception{
-        Member member = (Member) memberDao.getMemberByEmail("launcher37@naver.com");
+        Member member =memberDao.getMemberByEmail("launcher37@naver.com");
         Assert.assertNotNull(member);
         Assert.assertEquals("주동호", member.getName());
     }
