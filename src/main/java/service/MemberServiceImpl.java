@@ -4,6 +4,7 @@ import dao.MemberDao;
 import dao.MemberRoleDao;
 import dto.Member;
 import dto.MemberRole;
+import org.junit.Test;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,7 +26,9 @@ public class MemberServiceImpl implements MemberService{
     @Transactional
     public UserEntity getUser(String loginUserId) {
         Member member = memberDao.getMemberByEmail(loginUserId);
+        System.out.println(member);
         return new UserEntity(member.getEMAIL(),member.getMEMBER_PASSWORD());
+
     }
 
     @Override
@@ -37,7 +40,7 @@ public class MemberServiceImpl implements MemberService{
         for(MemberRole memberRole : memberRoles) {
             list.add(new UserRoleEntity(loginUserId,memberRole.getRole_name()));
         }
+        System.out.println(list);
         return list;
     }
-
 }

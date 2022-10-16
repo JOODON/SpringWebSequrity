@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import service.MemberService;
+import service.UserEntity;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -25,6 +27,9 @@ public class MemberDaoTest {
 
     @Autowired
     MemberRoleDao memberRoleDao;
+
+    @Autowired
+    MemberService memberService;
 
     @Test
     public void configTest() throws Exception{
@@ -44,5 +49,7 @@ public class MemberDaoTest {
         Assert.assertNotNull(member);
         Assert.assertEquals("주동호", member.getName());
         System.out.println(member.getName());
+        //여기까지 구현 잘됨 데이터베이스에서 잘 가져오고 있다는뜻!
     }
+
 }
