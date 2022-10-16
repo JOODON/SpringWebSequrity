@@ -29,7 +29,6 @@ public class MemberDaoTest {
     @Test
     public void configTest() throws Exception{
         // 아무 작업도 하지 않는다. 실행이 잘된다는 것은 Spring 설정이 잘 되어 있다는 것을 의미한다.
-
     }
     @Test
     public void connnectionTest() throws Exception{
@@ -44,5 +43,6 @@ public class MemberDaoTest {
         Member member =memberDao.getMemberByEmail("launcher37@naver.com");
         Assert.assertNotNull(member);
         Assert.assertEquals("주동호", member.getName());
+        System.out.println(member.getName());
     }
 }
