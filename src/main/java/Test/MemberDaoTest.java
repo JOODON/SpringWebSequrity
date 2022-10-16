@@ -51,5 +51,12 @@ public class MemberDaoTest {
         System.out.println(member.getName());
         //여기까지 구현 잘됨 데이터베이스에서 잘 가져오고 있다는뜻!
     }
-
+//    @Test
+//    public void getRoleUser() throws Exception{
+//        Member member = (Member) memberRoleDao.getRoleByEmail("launcher37@naver.com");
+//        Assert.assertNotNull(member);
+//        Assert.assertEquals("주동호", member.getName());
+//        System.out.println(member.getName());
+//        //여기까지 구현 잘됨 데이터베이스에서 잘 가져오고 있다는뜻!
+//    }
 }

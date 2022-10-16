@@ -26,21 +26,23 @@ public class MemberServiceImpl implements MemberService{
     @Transactional
     public UserEntity getUser(String loginUserId) {
         Member member = memberDao.getMemberByEmail(loginUserId);
-        System.out.println(member);
+        System.out.println(member.getEMAIL()+member.getMEMBER_PASSWORD());
         return new UserEntity(member.getEMAIL(),member.getMEMBER_PASSWORD());
-
+        //여가까지는 잘되는거 확인함 그러면 롤이 문제이라는게 나온거임
     }
 
     @Override
     @Transactional
-    public List<UserRoleEntity> getUserRoles(String loginUserId) {
-        List<MemberRole> memberRoles = memberRoleDao.getRoleByEmail(loginUserId);
-        List<UserRoleEntity> list = new ArrayList<>();
+    public List<UserRoleEntity> getUserRoles(String loginUserId){
+        List<MemberRole> memberRoles=memberRoleDao.getRoleByEmail(loginUserId);
+        List<UserRoleEntity> list=new ArrayList<>();
 
-        for(MemberRole memberRole : memberRoles) {
+        for (MemberRole memberRole : memberRoles){
             list.add(new UserRoleEntity(loginUserId,memberRole.getRole_name()));
+
         }
         System.out.println(list);
         return list;
+
     }
 }
