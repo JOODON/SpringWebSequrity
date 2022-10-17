@@ -4,6 +4,7 @@ import config.ApplicationConfig;
 import dao.MemberDao;
 import dao.MemberRoleDao;
 import dto.Member;
+import dto.MemberRole;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -51,6 +52,8 @@ public class MemberDaoTest {
         System.out.println(member.getEMAIL()+member.getMEMBER_PASSWORD());
         //여기까지 구현 잘됨 데이터베이스에서 잘 가져오고 있다는뜻!
     }
+
+
 //    @Test
 //    public void getRoleUser() throws Exception{
 //        Member member = (Member) memberRoleDao.getRoleByEmail("launcher37@naver.com");

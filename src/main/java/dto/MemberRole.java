@@ -2,12 +2,15 @@ package dto;
 
 public class MemberRole {
     private Long id;
-    private Long member_id;
-    private String role_name;
+    private Long memberId;
+    private String roleName;
 
-    public MemberRole(Long member_id, String role_name) {
-        this.member_id = member_id;
-        this.role_name = role_name;
+    public MemberRole() {
+    }
+
+    public MemberRole(Long memberId, String roleName) {
+        this.memberId = memberId;
+        this.roleName = roleName;
     }
 
     public Long getId() {
@@ -18,19 +21,21 @@ public class MemberRole {
         this.id = id;
     }
 
-    public Long getMember_id() {
-        return member_id;
+    public Long getMemberId() {
+        return memberId;
     }
 
-    public void setMember_id(Long member_id) {
-        this.member_id = member_id;
+    public void setMemberId(Long memberId) {
+        this.memberId = memberId;
     }
 
-    public String getRole_name() {
-        return role_name;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setRole_name(String role_name) {
-        this.role_name = role_name;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
+
+
 }

@@ -20,10 +20,13 @@ public class MemberRoleDao {
         this.jdbc=new NamedParameterJdbcTemplate(dataSource);
     }
     public List<MemberRole> getRoleByEmail(String email){
+
         Map<String,Object> map=new HashMap<>();
+
         map.put("email",email);
 
         return jdbc.query(MemberRoleDaoSqls.SELECT_ALL_BY_EMAIL,map,rowMapper);
+
     }
 
 }

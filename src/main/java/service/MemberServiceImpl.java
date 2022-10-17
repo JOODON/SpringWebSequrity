@@ -4,9 +4,6 @@ import dao.MemberDao;
 import dao.MemberRoleDao;
 import dto.Member;
 import dto.MemberRole;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,11 +33,11 @@ public class MemberServiceImpl implements MemberService{
     @Override
     @Transactional
     public List<UserRoleEntity> getUserRoles(String loginUserId) {
+        System.out.println(loginUserId);
         List<MemberRole> memberRoles = memberRoleDao.getRoleByEmail(loginUserId);
         List<UserRoleEntity> list = new ArrayList<>();
-
         for (MemberRole memberRole : memberRoles) {
-            list.add(new UserRoleEntity(loginUserId,memberRole.getRole_name()));
+            list.add(new UserRoleEntity(loginUserId,memberRole.getRoleName()));
         }
         System.out.println(list);
         return list;

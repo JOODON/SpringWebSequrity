@@ -1,10 +1,14 @@
 package service;
+
+import org.junit.Test;
+
 //로그인 정보와 암호 정보를 가지고 있는 객체 생성
 public class UserEntity {
     private String loginUserId;
     private String password;
 
-    public UserEntity(String loginUserId, String password) {
+
+    public UserEntity(String loginUserId,String password) {
         this.loginUserId = loginUserId;
         this.password = password;
     }
