@@ -45,10 +45,10 @@ public class MemberDaoTest {
 
     @Test
     public void getUser() throws Exception{
-        Member member =memberDao.getMemberByEmail("launcher37@naver.com");
+        Member member =memberDao.getMemberByEmail("sun545427@naver.com");
         Assert.assertNotNull(member);
-        Assert.assertEquals("주동호", member.getName());
-        System.out.println(member.getName());
+        Assert.assertEquals("이선영", member.getName());
+        System.out.println(member.getEMAIL()+member.getMEMBER_PASSWORD());
         //여기까지 구현 잘됨 데이터베이스에서 잘 가져오고 있다는뜻!
     }
 //    @Test

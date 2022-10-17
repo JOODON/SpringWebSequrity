@@ -16,7 +16,7 @@ public class PasswordEncoderTest {
     PasswordEncoder passwordEncoder;
     @Test
     public void passwordEncode() throws Exception{
-        System.out.println(passwordEncoder.encode("1234"));
+        System.out.println(passwordEncoder.encode("kkjjss103@"));
     }
     //Password Encoder값을 설정해주는거!
     @Test

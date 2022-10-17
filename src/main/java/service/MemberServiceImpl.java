@@ -5,6 +5,8 @@ import dao.MemberRoleDao;
 import dto.Member;
 import dto.MemberRole;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +17,7 @@ import java.util.List;
 public class MemberServiceImpl implements MemberService{
     private final MemberDao memberDao;
     private final MemberRoleDao memberRoleDao;
+
     // @Service가 붙은 객체는 스프링이 자동으로 Bean으로 생성하는데
     // 기본생성자가 없고 아래와 같이 인자를 받는 생성자만 있을 경우 자동으로 관련된 타입이 Bean으로 있을 경우 주입해서 사용하게 된다.
     public MemberServiceImpl(MemberDao memberDao, MemberRoleDao memberRoleDao) {
@@ -24,25 +27,22 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     @Transactional
-    public UserEntity getUser(String loginUserId) {
-        Member member = memberDao.getMemberByEmail(loginUserId);
-        System.out.println(member.getEMAIL()+member.getMEMBER_PASSWORD());
+    public UserEntity getUser(String loginUserId){
+        Member member=memberDao.getMemberByEmail(loginUserId);
         return new UserEntity(member.getEMAIL(),member.getMEMBER_PASSWORD());
-        //여가까지는 잘되는거 확인함 그러면 롤이 문제이라는게 나온거임
     }
+
 
     @Override
     @Transactional
-    public List<UserRoleEntity> getUserRoles(String loginUserId){
-        List<MemberRole> memberRoles=memberRoleDao.getRoleByEmail(loginUserId);
-        List<UserRoleEntity> list=new ArrayList<>();
+    public List<UserRoleEntity> getUserRoles(String loginUserId) {
+        List<MemberRole> memberRoles = memberRoleDao.getRoleByEmail(loginUserId);
+        List<UserRoleEntity> list = new ArrayList<>();
 
-        for (MemberRole memberRole : memberRoles){
+        for (MemberRole memberRole : memberRoles) {
             list.add(new UserRoleEntity(loginUserId,memberRole.getRole_name()));
-
         }
         System.out.println(list);
         return list;
-
     }
 }
